@@ -1,0 +1,33 @@
+body {
+   padding: 0;
+   margin: 0;
+   font-family: Georgia;
+   color: #333;
+   background: #efeee7;
+   font-family: 'Open Sans Condensed', sans-serif;
+   font-family: 'Princess Sofia', cursive;
+ }
+
+h1 {
+	color: blue;
+	font-size: 60px;
+	margin-bottom: 30px;
+	margin-top:20px;
+	margin-left: 10px;
+}
+
+h2 {
+	color: black;
+	font-size: 20px;
+	margin-bottom:20px;
+	margin-left: 10px;
+	font-family: cursive;
+}
+
+p {
+	color:black;
+	font-size: 15px;
+	margin-bottom:15px;
+	margin-left: 10px;
+	font-family: cursive;
+}

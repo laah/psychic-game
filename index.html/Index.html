@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Psychic-Game</title>
+	<link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Princess+Sofia" rel="stylesheet">
+	<!-- <link rel="javascript" type="text/javascript" href='../assets/javascript/game.js' -->
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+ <!-- in java random letter picked -->
+	<h1>Phychic Game</h1>
+
+	<h2>Guess what letter I'm thinking of</h2>
+	<!-- create an event listener for onKeyUp in javascript -->
+
+	 <p>Wins: <span id="wins"></span></p>
+
+	<!-- if letter is === then user score increases by one -->
+
+	 <p>Losses: <span id="losses"></span></p>
+
+	<!-- if letter is not same as computer guess user looses -->
+
+	 <p>Guesses Left: <span id="guessesLeft"></span></p>
+
+
+
+	 <p><span id="lettersGuessed"></span></p>
+
+ 
+ <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+
+var wins = 0;
+
+var losses = 0;
+
+var guessesLeft = 9;
+
+var compChoice ="";
+
+var userGuess= [];
+
+	
+var letters = ["a","b","c","d","e","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+
+var compChoice = letters[Math.floor(Math.random() * letters.length)];
+	console.log(compChoice);
+
+// when user chooses a key
+document.onkeyup = function(event){
+	// 	var compChoice = letters[Math.floor(Math.random() * letters.length)];
+	// console.log(compChoice);
+	 var letter = String.fromCharCode(event.keyCode).toLowerCase(); //userGuess = "n";
+	 userGuess.push(letter);
+// pushes it into array
+	 document.getElementById("lettersGuessed").innerHTML = ("Your guesses so far: " + userGuess);
+	 
+// if user and comp guess are the same add 1 to wins, reset guessesLeft and userGuess array
+	console.log("userLetter ---", letter);
+	console.log(" compChoice ---",compChoice);
+
+	if (letter == compChoice) {
+	 	console.log('wins before!!!', wins);
+		wins++;
+		console.log('wins after!!!', wins);
+		
+		document.getElementById("wins").innerHTML = wins
+		// guessesLeft = 9;
+		document.getElementById("guessesLeft").innerHTML = 9
+		document.getElementById("userGuess").innerHTML = []
+		// userGuess = [];
+	}
+	// if user runs out of guesses add 1 to losses reset guessLeft and userGuess array
+	else if(guessesLeft === 0){
+		losses++;
+		document.getElementById("losses").innerHTML = losses
+		document.getElementById("guessesLeft").innerHTML = 9
+		document.getElementById("userGuess").innerHTML = []
+		guessesLeft =9;
+		userGuess.length =0;
+	}
+// if user guesses an incorrect letter subtract one from guessesLeft
+	else if(userGuess !== compChoice){
+		guessesLeft --;
+		document.getElementById("guessesLeft").innerHTML = guessesLeft
+	}
+}
+	
+ //Computer makes a choice 
+// 	var compChoice = letters[Math.floor(Math.random() * letters.length)];{
+// }
+// 	console.log(compChoice);
+
+//
+// subtract each guess from the total of 9
+// 	function charCount(event){
+// 		var guessesLeft, charDisplay, counter, lastkey;
+// 		textEntered =document.getElementById(userGuess).value;
+// 		charDisplay = document.getElementById("guessesLeft");
+// 		counter = (9 - (userGuess.length));
+// 		charDisplay.userGuess = counter;
+// 	}
+// function addscore(){
+// 	if (userGuess === compChoice){
+		// document.getElementById("wins").innerHTML = (+1)
+// 	}
+// 	else (userGuess == compChoice){
+// 	document.getElementById("losses").innerHTML = (-1)
+// 	}
+// 	}
+
+	// if (userGuess === compChoice)add letter to userGuess array
+
+	// if (userGuess >= 9)add 1 to losses and reset game 
+});
+</script>
+</body>
+</html>
